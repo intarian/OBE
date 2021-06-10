@@ -1,0 +1,49 @@
+/* CSS Document */
+
+/* this #menu-overlay element will cover the screen when the menu is open. Clicking on it will close the menu. */
+#menu-overlay {
+  display: none;
+  position: fixed;
+/*  background: purple; *//* I made this purple so you can see it :) */
+  opacity: 0.1; /* can be made to 0 */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.ul_menu, #menu {
+
+  padding: 0;
+}
+#menu {
+ position: relative;
+ z-index: 5;
+ color: black; 
+ font-size: 20px;  
+}
+
+#menu .parent-gi {
+  display: block;
+/*  background: #efefef; */
+  padding: 20px;
+  line-height: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#menu .parent-gi:hover { /*background: yellow; */}
+#menu .parent-gi .sub-nav-gi { display: none; }
+
+#menu .parent-gi .sub-nav-gi {
+  list-style: none;
+  font-weight: normal;
+  font-size: 16px;
+  padding: 0 0px;
+}
+#menu .parent-gi .sub-nav-gi li a {
+  text-decoration: none;
+  color: black; 
+  font-size: 16px; 
+  display: block;
+}
+
+#menu .parent-gi .sub-nav-gi li a:hover {/* color: purple; */ }

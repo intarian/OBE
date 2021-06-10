@@ -1,0 +1,25 @@
+// create new table for new course
+CREATE TABLE `obe_exp`.`ns2104_RP_18` ( `serial` INT NOT NULL AUTO_INCREMENT , `data_detail` VARCHAR(255) NOT NULL , PRIMARY KEY (`serial`)) ENGINE = MyISAM;
+INSERT INTO `ns2104_RP_18` (`serial`, `data_detail`) VALUES (NULL, 'Instrument');
+INSERT INTO `ns2104_RP_18` (`serial`, `data_detail`) VALUES (NULL, 'Question');
+INSERT INTO `ns2104_RP_18` (`serial`, `data_detail`) VALUES (NULL, 'QuesPart');
+INSERT INTO `ns2104_RP_18` (`serial`, `data_detail`) VALUES (NULL, 'MaxMarks');
+INSERT INTO `ns2104_RP_18` (`serial`, `data_detail`) VALUES (NULL, 'CLO');
+
+// Add student data to new course
+INSERT INTO `ns2104_RP_18` (data_detail)
+SELECT `rollno` FROM `student_records` WHERE `rollno` LIKE '%RP-16%'
+
+// Add new grading component
+ALTER TABLE ns3201
+ADD COLUMN I1 VARCHAR(255);
+UPDATE `ns3201` SET `I1` = 'Quiz' WHERE `ns3201`.`data_detail` = 'Instrument';
+UPDATE `ns3201` SET `I1` = '1' WHERE `ns3201`.`data_detail` = 'Question';
+UPDATE `ns3201` SET `I1` = '1' WHERE `ns3201`.`data_detail` = 'QuesPart';
+UPDATE `ns3201` SET `I1` = '10' WHERE `ns3201`.`data_detail` = 'MaxMarks';
+UPDATE `ns3201` SET `I1` = '1' WHERE `ns3201`.`data_detail` = 'CLO';
+UPDATE `ns3201` SET `I1` = '1' WHERE `ns3201`.`data_detail` = 'PLO';
+
+ALTER TABLE `ns3201` DROP `assign`
+
+INSERT INTO `ns3201` (`serial`, `data_detail`, `quiz`) VALUES (NULL, '', '0');
