@@ -1,5 +1,6 @@
 <?php
 
+
 // Initialize the session
 session_start();
  
@@ -9,6 +10,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("Location:login/index.php?location=" . urlencode($_SERVER['REQUEST_URI']));
     exit;
 }
+
 
 // include function folder
 foreach (glob("functions/*.php") as $filename)
@@ -20,6 +22,10 @@ $conn = OpenCon();
 //What page to show
 $menu_item = $_GET['menu'];
 $course = $_GET['course'];
+
+//$menu_item = 'rubric_design_new';
+//$course = 'ee2201l_Spring_2019';
+
 $access = access_verify($course,$_SESSION["username"],$conn);
 
 if($access == 0){
@@ -28,13 +34,9 @@ if($access == 0){
 
 $error = $_GET['error'];
 if($course==''){
-//    $course = 'ee3206_Spring_2019';
     echo "Please select valid course and session";
     exit();
 }
-//$menu_item='add_rubrics';
-//    $course = 'ns1205';
-//    $session = 'RP_17';
 ?>
 <!DOCTYPE html>
 <html>
@@ -115,7 +117,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         <?php if($course_end_status == 1): ?>
         <b><img src="w3images/bow_icon_2.png" style=\"width:20px;height:10px;\"><?php echo "<a style=\"text-decoration:none;\" class=\"w3-button w3-hover-cyan\" href=\"main.php?course=$course\">".$course_code." | ".$course_title." | ".mysqli_fetch_assoc(mysqli_query($conn,"SELECT course_type FROM courses_info WHERE course_id='".$course."'"))['course_type']."</a>" ?></b>
         <?php else: ?>
-        <b><a class="w3-button w3-hover-green" href="main.php?menu=course_setting&course=<?php echo $course ?>"><em class='fa fa-wrench fa-fw'></em></a> <?php echo "<a style=\"text-decoration:none;\" class=\"w3-button w3-hover-cyan\" href=\"main.php?course=$course\">".$course_code." | ".$course_title." | ".mysqli_fetch_assoc(mysqli_query($conn,"SELECT course_type FROM courses_info WHERE course_id='".$course."'"))['course_type']."</a>" ?></b>&nbsp;&nbsp;<a href="main.php?menu=add_rubrics&course=<?php echo $course ?>" class="w3-button w3-hover-blue">Design Rubrics</a>
+        <b><a class="w3-button w3-hover-green" href="main.php?menu=course_setting&course=<?php echo $course ?>"><em class='fa fa-wrench fa-fw'></em></a> <?php echo "<a style=\"text-decoration:none;\" class=\"w3-button w3-hover-cyan\" href=\"main.php?course=$course\">".$course_code." | ".$course_title." | ".mysqli_fetch_assoc(mysqli_query($conn,"SELECT course_type FROM courses_info WHERE course_id='".$course."'"))['course_type']."</a>" ?></b>&nbsp;&nbsp;<a href="main.php?menu=design_rubrics&course=<?php echo $course ?>" class="w3-button w3-hover-blue">Design Rubrics</a>
         <?php endif; ?>
     </h5>
   </header>
@@ -248,11 +250,20 @@ if ($menu_item=='update'){
 
 <!-- Add Rubrics -->
 <div class="w3-container" style="overflow:auto; white-space: nowrap;">
+<?php if($menu_item=='design_rubrics'){
+    include('panels/design_rubrics_new.php');
+}
+?>
+</div>	
+    
+    
+<!-- Add Rubrics -->
+<div class="w3-container" style="overflow:auto; white-space: nowrap;">
 <?php if($menu_item=='add_rubrics'){
     include('panels/design_rubrics.php');
 }
 ?>
-</div>	
+</div>
     
 <!-- Course Settings -->
 <div class="w3-container" style="overflow:auto; white-space: nowrap;">
@@ -269,6 +280,9 @@ if($menu_item=='module_edit'){
 }
 ?>
 </div>
+    
+
+    
   <!-- Footer -->
   <footer class="w3-container w3-padding-16 w3-light-grey">
     <!--<h4>FOOTER</h4>-->

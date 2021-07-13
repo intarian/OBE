@@ -112,28 +112,35 @@
         }
         Print "</table>";
     }
+
+    // Print Rubric Details
     $rubric_set_count = mysqli_fetch_assoc(mysqli_query($conn,"Select rubric_set_count FROM courses_info Where course_id='".$course."'"))['rubric_set_count'];
     if ($rubric_set_count>0){
         Print "<br>";
         Print "<table class='w3-table w3-bordered w3-border w3-white w3-topbar'>";
-        Print "<tr><th colspan=\"2\"; style=\"text-align:center\";>Rubric Sets</th><tr>";
+        Print "<tr bgcolor=\"#34ebb4\"><th colspan=\"6\"; style=\"text-align:center\";>Rubric Sets</th><tr>";
+        
+        Print "<tr><th colspan=\"1\"; style=\"text-align:center\";>ID</th><th colspan=\"1\"; style=\"text-align:center\";>Name</th> <th colspan=\"1\"; style=\"text-align:center\";>Level</th><th colspan=\"3\"; style=\"text-align:center\";>Criterion</th><tr>";
         $all_rubrics_fetch = mysqli_fetch_assoc(mysqli_query($conn,"Select rubric_sets FROM courses_info Where course_id='".$course."'"))['rubric_sets'];
         $all_rubrics_fetch = explode(":\^\:",$all_rubrics_fetch);
         for ($r=1;$r<=$rubric_set_count;$r++){
             Print "<tr>";
-            Print "<td style=\"width:15%\"><b>Set ".$r."</b>";
+            Print "<td colspan=\"1\"; style=\"text-align:center\";><b>Set ".$r."</b>";
             Print "<a href='reports/rubric_evaluation_sheet.php?course=$course&set_id=$r' target='_blank'><b><em class=\"fa fa-file-pdf-o fa-fw\"></em></b></td>";
             for ($e=0;$e<count($all_rubrics_fetch);$e++)
-                if($all_rubrics_fetch[$e]=="set".$r)
+                if($all_rubrics_fetch[$e]=="set_".$course."_".$r)
                     $index = $e;
-            $rubric_count = $all_rubrics_fetch[$index+1];
-            
-            Print "<td style=\"width:85%\">";
+            $rubric_name = $all_rubrics_fetch[$index+1];
+            $rubric_count = $all_rubrics_fetch[$index+2];
+            $rubric_level = $all_rubrics_fetch[$index+3];
+            Print "<td colspan=\"1\"; style=\"text-align:center\";>$rubric_name</td>";
+            Print "<td colspan=\"1\"; style=\"text-align:center\";>$rubric_level</td>";
+            Print "<td colspan=\"3\"; style=\"text-align:center\";>";
             for ($t=0;$t<$rubric_count;$t++){
                 if ($t==$rubric_count-1)
-                    Print $all_rubrics_fetch[$index+2+$t]; //print last rubric value (hides comma at the end)
+                    Print $all_rubrics_fetch[$index+4+($rubric_level*$t)+$t]; //print last rubric value (hides comma at the end)
                 else
-                    Print $all_rubrics_fetch[$index+2+$t].", ";
+                    Print $all_rubrics_fetch[$index+4+($rubric_level*$t)+$t].", ";
             }
             Print "</td></tr>";
         }

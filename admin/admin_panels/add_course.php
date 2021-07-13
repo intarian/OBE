@@ -14,6 +14,16 @@
             $instructor_username[] = $col_list['username'];
 		}
     ?>
+	
+	<?php 
+	/* Get Batch List */
+     $sql_batch_list = $conn->query("SHOW COLUMNS FROM batch_list");
+     $batch_list = array();
+		while($col_list = $sql_batch_list->fetch_assoc()){
+			$batch_list[] = $col_list['Field'];
+		}
+    ?>
+	
     <form id="add_course" method="get" action="">
     <table class="w3-table w3-auto w3-bordered">
     <tr><td><b>Course Code: </b></td><td><input type="text" name="course_code" ></td></tr>
@@ -26,10 +36,11 @@
          </td></select></tr>
     <tr><td><b>Enroll Students of Session: </b></td>
          <td><select name="student_session"> 
-             <option value=RP-16>RP-16-EE</option>
-             <option value=RP-17>RP-17-EE</option>
-             <option value=RP-18>RP-18-EE</option>
-             <option value=RP-19>RP-19-EE</option>
+		<?php
+			for ($i=1;$i<count($batch_list);$i++){
+				echo "<option value=$batch_list[$i]>$batch_list[$i]</option>";
+			}
+		?>
          </td></select></tr>
     <tr><td><b>Course Term</b></td>
          <td><select name="offer_term">
@@ -86,11 +97,12 @@
             die(mysqli_error());
         }
 
-
+		
         if (mysqli_query($conn,"CREATE TABLE `$course_code_table` ( `serial` INT NOT NULL AUTO_INCREMENT , `data_detail` VARCHAR(255) NOT NULL , PRIMARY KEY (`serial`)) ENGINE = MyISAM;"))
             $course_add_success = 1;
         else{
             $course_add_success = 0;
+			echo "Table creation failed. Contact Administrator";
             die(mysqli_error());
         }
     
@@ -197,8 +209,9 @@
         else
             echo "Oops! We were unable to add course, and might have done something wrong as well. Contact Administrator ASAP";
         echo "<br>";
+		
         // Add student data to new course
-        if (mysqli_query($conn,"INSERT INTO `$course_code_table` (data_detail) SELECT `rollno` FROM `student_records` WHERE `rollno` LIKE '%$session_enroll%'"))
+        if (mysqli_query($conn,"INSERT INTO `$course_code_table` (data_detail) SELECT `$session_enroll` FROM `batch_list`"))
             echo "Students of $session_enroll are automatically enrolled in this course. If you wish to unroll or enroll students, goto course manager";
     }
     ?>

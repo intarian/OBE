@@ -58,12 +58,12 @@
       $pdf->SetFont('Times', 'b' ,12.5);
 	  $pdf->Cell($pdf->GetPageWidth()-10,1,$dept_name,0,0,'C');
       $pdf->SetY($overviewheight+12);
-        $pdf->Ln();
+      $pdf->Ln();
       $pdf->SetFont('Times','b',13);
-    $pdf->Cell($pdf->GetPageWidth()-10,4,"Rubric Evaluation Sheet",0,0,'C');
+      $pdf->Cell($pdf->GetPageWidth()-10,4,"Rubric Evaluation Sheet",0,0,'C');
 	//  $pdf->Text(115,$overviewheight+8,"Rubric Evaluation Sheet");
       $pdf->SetFont('Times','b',11);
-    $pdf->SetY($overviewheight+6);
+      $pdf->SetY($overviewheight+6);
       $pdf->SetX(7);
       $pdf->Cell($pdf->GetStringWidth("Course Code: "),$overviewheight+14,"Course Code: ",0,0,'C');
       $pdf->Cell($pdf->GetStringWidth($course_code),$overviewheight+14,$course_code,0,0,'C');
@@ -74,15 +74,116 @@
       $pdf->Cell($pdf->GetStringWidth($course_title),$overviewheight+14,$course_title,0,0,'C');
       $pdf->Line(7,$overviewheight+19,$pdf->GetPageWidth()-10,$overviewheight+19);
 
+    // Fetch Rubric Details
     $all_rubrics_fetch = mysqli_fetch_assoc(mysqli_query($conn,"Select rubric_sets FROM courses_info Where course_id='".$course."'"))['rubric_sets'];
     $all_rubrics_fetch = explode(":\^\:",$all_rubrics_fetch);
     for ($e=0;$e<count($all_rubrics_fetch);$e++)
-        if($all_rubrics_fetch[$e]=="set".$rubric_set_id)
+        if($all_rubrics_fetch[$e]=="set_".$course."_".$rubric_set_id)
             $index = $e;
-    $rubric_count = $all_rubrics_fetch[$index+1];
+    $rubric_name = $all_rubrics_fetch[$index+1];
+    $rubric_count = $all_rubrics_fetch[$index+2];
+    $rubric_level = $all_rubrics_fetch[$index+3];
+    
+    // Print Rubric Details
+    $pdf->SetXY(7,$overviewheight+20);
+    $pdf->SetFont('Times','b',14);
+    $pdf->Cell($pdf->GetStringWidth("Rubric Name: "),10,"Rubric Name: ",0,0,'C');
+    $pdf->Cell($pdf->GetStringWidth($rubric_name),10,$rubric_name,0,0,'C');
+    $pdf->Ln();
+    for ($t=0;$t<$rubric_count;$t++){
+        $pdf->SetX(7);
+        $overviewheight += 7*($rubric_level+1);
+        $pdf->SetFont('Times','b',12);
+        $pdf->Cell($pdf->GetStringWidth("Criterion: "),7,"Criterion: ",0,0,'C');
+        $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t],0,0,'C');
+        $pdf->Ln();
+        if ($rubric_level == 4){
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Exemplary [5]: "),7,"Exemplary [5]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+1]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+1],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Competent [3]: "),7,"Competent [3]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+2]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+2],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Developing [1]: "),7,"Developing [1]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+3]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+3],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Absent [0]: "),7,"Absent [0]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+4]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+4],0,0,'C');
+            $pdf->Ln();
+       }
+        if ($rubric_level == 5){
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Exemplary [5]: "),7,"Exemplary [5]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+1]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+1],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Accomplished [4]: "),7,"Accomplished [4]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+2]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+2],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Developing [3]: "),7,"Developing [3]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+3]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+3],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Begining [1]: "),7,"Begining [1]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+4]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+4],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Absent [0]: "),7,"Absent [0]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+5]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+5],0,0,'C');
+            $pdf->Ln();
+       }
+        if ($rubric_level == 6){
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Exemplary [5]: "),7,"Exemplary [5]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+1]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+1],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Satisfactory [4]: "),7,"Satisfactory [4]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+2]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+2],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Developing [3]: "),7,"Developing [3]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+3]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+3],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Unsatisfactory [2]: "),7,"Unsatisfactory [2]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+4]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+4],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Unacceptable [1]: "),7,"Unacceptable [1]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+5]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+5],0,0,'C');
+            $pdf->Ln();
+            $pdf->SetFont('Times','b',10);
+            $pdf->Cell($pdf->GetStringWidth("Absent [0]: "),7,"Absent [0]: ",0,0,'C');
+            $pdf->SetFont('Times','',10);
+            $pdf->Cell($pdf->GetStringWidth($all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+6]),7,$all_rubrics_fetch[$index+4+($rubric_level*$t)+$t+6],0,0,'C');
+            $pdf->Ln();
+       }
+    }
+
+	// get student data for rubric evaluation
     $rubrics_fetched = array();
     for ($t=0;$t<$rubric_count;$t++)
-        $rubrics_fetched[] = $all_rubrics_fetch[$index+2+$t];
+        $rubrics_fetched[] = $all_rubrics_fetch[$index+4+($rubric_level*$t)+$t];
 
         $stu_count = mysqli_num_rows($conn->query("SELECT data_detail FROM $course"));
         $roll_list = array();
@@ -97,9 +198,9 @@
             $counter++;
         }
 
-
-    
-    $pdf->SetXY(10,$overviewheight+25);
+	// start printing data
+	$pdf->Ln();
+    //$pdf->SetXY(10,$overviewheight+40);
 
 
     $pdf->SetFont('Times','b',10);

@@ -1,0 +1,9 @@
+#AuthType Basic  
+#AuthName "restricted area"  
+#AuthUserFile /var/.htpasswd  
+#require valid-user
+
+AuthUserFile /home/zulqarnain/apache_password/.htpasswd
+AuthName "Please Enter Password"
+AuthType Basic
+Require valid-user

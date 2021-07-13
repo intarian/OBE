@@ -56,32 +56,75 @@ else if($method=='rubric'){
     $all_rubrics_fetch = mysqli_fetch_assoc(mysqli_query($conn,"Select rubric_sets FROM courses_info Where course_id='".$course_id."'"))['rubric_sets'];
     $all_rubrics_fetch = explode(":\^\:",$all_rubrics_fetch);
     for ($i=0;$i<count($all_rubrics_fetch);$i++){
-        if($all_rubrics_fetch[$i]=="set".$rubric_set_id_fetch)
+        if($all_rubrics_fetch[$i]=="set_".$course_id."_".$rubric_set_id_fetch)
             $index = $i;
     }
-    $rubric_count = $all_rubrics_fetch[$index+1];
+    $rubric_name = $all_rubrics_fetch[$index+1];
+	$rubric_count = $all_rubrics_fetch[$index+2];
+	$rubric_level = $all_rubrics_fetch[$index+3];
     $update_status = 0;
     for ($stu_id=15;$stu_id<=$stu_count;$stu_id++){
-        $marks = 0;
-        $update_data ='';
-            for ($i=0;$i<$rubric_count;$i++){
-                $data_get = $_GET["rubric_val_".$i."_stu_id_".$stu_id];
-                if ($data_get=='Exemplary')
-                    $marks += 5;
-                if ($data_get=='Satisfactory')
-                    $marks += 4;
-                if ($data_get=='Developing')
-                    $marks += 3;
-                if ($data_get=='Unsatisfactory')
-                    $marks += 2;
-                if ($data_get=='Unacceptable')
-                    $marks += 1;
-                if ($data_get=='Absent')
-                    $marks += 0;
-                $update_data = $update_data.$data_get.$delimeter;
-            }
-        $marks = $marks/($rubric_count*5)*$max_marks;
-        $update_data = $update_data.$marks;
+		if ($rubric_level == 6){
+        	$marks = 0;
+        	$update_data ='';
+			for ($i=0;$i<$rubric_count;$i++){
+				$data_get = $_GET["rubric_val_".$i."_stu_id_".$stu_id];
+				if ($data_get=='Exemplary')
+					$marks += 5;
+				if ($data_get=='Satisfactory')
+					$marks += 4;
+				if ($data_get=='Developing')
+					$marks += 3;
+				if ($data_get=='Unsatisfactory')
+					$marks += 2;
+				if ($data_get=='Unacceptable')
+					$marks += 1;
+				if ($data_get=='Absent')
+					$marks += 0;
+				$update_data = $update_data.$data_get.$delimeter;
+			}
+			$marks = $marks/($rubric_count*5)*$max_marks;
+			$update_data = $update_data.$marks;
+		}
+		if ($rubric_level == 5){
+        	$marks = 0;
+        	$update_data ='';
+			for ($i=0;$i<$rubric_count;$i++){
+				$data_get = $_GET["rubric_val_".$i."_stu_id_".$stu_id];
+				if ($data_get=='Exemplary')
+					$marks += 5;
+				if ($data_get=='Accomplished')
+					$marks += 4;
+				if ($data_get=='Developing')
+					$marks += 3;
+				if ($data_get=='Begining')
+					$marks += 1;
+				if ($data_get=='Absent')
+					$marks += 0;
+				$update_data = $update_data.$data_get.$delimeter;
+			}
+			$marks = $marks/($rubric_count*5)*$max_marks;
+			$update_data = $update_data.$marks;
+		}
+		if ($rubric_level == 4){
+        	$marks = 0;
+        	$update_data ='';
+			for ($i=0;$i<$rubric_count;$i++){
+				$data_get = $_GET["rubric_val_".$i."_stu_id_".$stu_id];
+				if ($data_get=='Exemplary')
+					$marks += 5;
+				if ($data_get=='Competent')
+					$marks += 3;
+				if ($data_get=='Developing')
+					$marks += 1;
+				if ($data_get=='Absent')
+					$marks += 0;
+				$update_data = $update_data.$data_get.$delimeter;
+			}
+			$marks = $marks/($rubric_count*5)*$max_marks;
+			$update_data = $update_data.$marks;
+		}
+        
         $roll = mysqli_fetch_assoc($conn->query("SELECT data_detail FROM $course_id WHERE serial =$stu_id"))['data_detail'];
         if(mysqli_query($conn,"UPDATE $course_id SET $component = '$update_data' WHERE data_detail = '$roll'"))
             $update_status=1;

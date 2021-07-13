@@ -2,7 +2,7 @@
 	$course=$_GET['course'];
     $error = $_GET['error'];
 	$clo_count = mysqli_fetch_assoc(mysqli_query($conn,"SELECT CLO_count FROM courses_info WHERE course_id='$course'"))['CLO_count'];
-    $rubric_set_count = mysqli_fetch_assoc(mysqli_query($conn,"SELECT rubric_set_count FROM courses_info WHERE course_id='$course'"))['rubric_set_count'];
+    
 
     if(mysqli_fetch_assoc(mysqli_query($conn,"SELECT course_ended FROM courses_info WHERE courses_info.`course_id` ='$course'"))['course_ended']){
         echo "<h5 align=\"center\" class=\"w3-text-red\"><strong>The course is marked ended</strong></h5>";
@@ -45,11 +45,21 @@
 <td>
 <select name="rubric_set" id="rubric_set"> 
 <?php
-	for ($i=1;$i<=$rubric_set_count;$i++){
-		if($i==1)
-			echo "<option value=1 selected=\"selected\">1</option>";
+    $rubric_set_count = mysqli_fetch_assoc(mysqli_query($conn,"SELECT rubric_set_count FROM courses_info WHERE course_id='$course'"))['rubric_set_count'];
+    $all_rubrics_fetch = mysqli_fetch_assoc(mysqli_query($conn,"Select rubric_sets FROM courses_info Where course_id='".$course."'"))['rubric_sets'];
+    $all_rubrics_fetch = explode(":\^\:",$all_rubrics_fetch);
+    for ($r=1;$r<=$rubric_set_count;$r++){
+        for ($e=0;$e<count($all_rubrics_fetch);$e++)
+            if($all_rubrics_fetch[$e]=="set_".$course."_".$r)
+                $index = $e;
+    $rubric_name = $all_rubrics_fetch[$index+1];
+//    $rubric_count = $all_rubrics_fetch[$index+2];
+//    $rubric_level = $all_rubrics_fetch[$index+3];
+	
+		if($r==1)
+			echo "<option value=1 selected=\"selected\">Set 1 - $rubric_name</option>";
 		else
-			echo "<option value=$i>$i</option>";
+			echo "<option value=$r>Set $r  - $rubric_name</option>";
 	}
 ?>
 </select>

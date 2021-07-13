@@ -71,7 +71,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     <div id="menu">
         <ul class="ul_menu">
 	 <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onClick="w3_close()" title="close menu"><em class="fa fa-remove fa-fw"></em> Close Menu</a>
-	 <a href="main.php?menu=home" class="w3-bar-item w3-button w3-padding" style="align:center"><em class="fa fa-home fa-fw"></em> Home</a>
+	 <a href="index.php" class="w3-bar-item w3-button w3-padding" style="align:center"><em class="fa fa-home fa-fw"></em> Home</a>
      <a href="index.php?menu=plo_obt_session" class="w3-bar-item w3-button w3-padding" style="align:center"><em class="fa fa-dashboard fa-fw"></em>Batch PLO Achievment</a>
 </ul>
         

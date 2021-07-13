@@ -38,9 +38,11 @@
         $all_rubrics_fetch = mysqli_fetch_assoc(mysqli_query($conn,"Select rubric_sets FROM courses_info Where course_id='".$course."'"))['rubric_sets'];
         $all_rubrics_fetch = explode(":\^\:",$all_rubrics_fetch);
         for ($i=0;$i<count($all_rubrics_fetch);$i++){
-            if($all_rubrics_fetch[$i]=="set".$rubric_set_id_fetch)
+            if($all_rubrics_fetch[$i]=="set_".$course."_".$rubric_set_id_fetch)
                 $index = $i;
-        $rubric_count = $all_rubrics_fetch[$index+1];
+        $rubric_name = $all_rubrics_fetch[$index+1];
+		$rubric_count = $all_rubrics_fetch[$index+2];
+		$rubric_level = $all_rubrics_fetch[$index+3];
         }
     }
     Print "</tbody>";

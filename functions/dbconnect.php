@@ -11,8 +11,8 @@
 function OpenCon()
  {
  $dbhost = "localhost";
- $dbuser = "session2010";
- $dbpass = "83272";
+ $dbuser = "obe";
+ $dbpass = "obe@12345";
  $db = "obe";
 
 

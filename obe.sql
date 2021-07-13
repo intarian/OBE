@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.0
+-- version 4.6.6deb5ubuntu0.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 10, 2021 at 03:20 PM
--- Server version: 5.7.32-0ubuntu0.16.04.1
--- PHP Version: 7.4.13
+-- Host: localhost:3306
+-- Generation Time: Jul 13, 2021 at 01:37 AM
+-- Server version: 5.7.34-0ubuntu0.18.04.1
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -172,7 +170,7 @@ CREATE TABLE `courses_info` (
   `CLO_count` int(100) DEFAULT NULL,
   `clo_details` varchar(3000) COLLATE utf8_bin NOT NULL,
   `rubric_set_count` int(100) NOT NULL,
-  `rubric_sets` varchar(1000) COLLATE utf8_bin NOT NULL,
+  `rubric_sets` text COLLATE utf8_bin NOT NULL,
   `plos_enabled` varchar(100) COLLATE utf8_bin NOT NULL,
   `PLO1` varchar(150) COLLATE utf8_bin NOT NULL,
   `PLO2` varchar(150) COLLATE utf8_bin NOT NULL,
@@ -198,7 +196,7 @@ INSERT INTO `courses_info` (`serial`, `course_id`, `course_code`, `course_title`
 (3, 'ee3206l_Spring_2019', 'EE-3206L', 'Digital Communication', 'Spring 2019', 1, '3', 'LAB', 'Muhammad Zulqarnain', 'zulqarnain:\\^\\:admin', 'The objective of this LAB is to prepare students for useful tools for the design and performance analysis of a digital transmitter and receiver at the physical layer of a communication system', '15.00', '20.00', '0.00', '0.00', '25.00', '25.00', '0.00', '0.00', '15.00', '0.00', 1, 'CLO1:\\^\\:Use SDR / Lab Trainer boards to validate different digital communication techniques and design a complete discrete-time modem:\\^\\:P4', 4, 'set1:\\^\\:4:\\^\\:Realization of Experiment:\\^\\:Team Work:\\^\\:Computer Use:\\^\\:Conducting Experiment:\\^\\:set2:\\^\\:3:\\^\\:Realization of Experiment:\\^\\:Computer Use:\\^\\:Data Analysis:\\^\\:set3:\\^\\:7:\\^\\:Realization of Experiment:\\^\\:Team Work:\\^\\:Computer Use:\\^\\:Conducting Experiment:\\^\\:Data Analysis:\\^\\:Data Collection:\\^\\:Laboratory Safety Rules:\\^\\:set4:\\^\\:1:\\^\\:Realization of Experiment', '5', '', '', '', '', 'CLO1:\\^\\:100', '', '', '', '', '', '', ''),
 (4, 'ns1205_Spring_2019', 'NS-1205', 'Complex Variables & Transforms', 'Spring 2019', 1, '3', 'Theory', 'Dr. Muhammad Kashif Samee', 'kashif.samee:\\^\\:admin', 'Description goes here', '35.00', '40.00', '15.00', '10.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 4, 'CLO1:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO2:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO3:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO4:\\^\\:CLO Description goes here:\\^\\:C1', 1, 'set1:\\^\\:3:\\^\\:Realization of Experiment:\\^\\:Team Work:\\^\\:Conducting Experiment', '1:\\^\\:2:\\^\\:12', 'CLO1:\\^\\:100.0', 'CLO2:\\^\\:100.0:\\^\\:CLO3:\\^\\:100.0', '', '', '', '', '', '', '', '', '', 'CLO4:\\^\\:100.0'),
 (5, 'ee1206_Fall_2019', 'EE-1206', 'Workshop Practice', 'Fall 2019', 1, '1', 'LAB', 'Mr. Kashif Habib', 'kashif.habib:\\^\\:admin', 'Description goes here', '35.00', '40.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '25.00', '0.00', 4, 'CLO1:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO2:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO3:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO4:\\^\\:CLO Description goes here:\\^\\:C1', 0, '', '1:\\^\\:2', 'CLO1:\\^\\:100:\\^\\:CLO2:\\^\\:100:\\^\\:CLO3:\\^\\:100:\\^\\:CLO4:\\^\\:100', 'CLO1:\\^\\:100:\\^\\:CLO2:\\^\\:100:\\^\\:CLO3:\\^\\:100:\\^\\:CLO4:\\^\\:100', '', '', '', '', '', '', '', '', '', ''),
-(6, 'ee3206_Spring_2020', 'EE-3206', 'Digital Communication', 'Spring 2020', 0, '3', 'Theory', 'Mr. Muhammad Zulqarnain', 'zulqarnain:\\^\\:admin', 'The objective of the course is to prepare students for engineering work and research in the telecommunication industry. The course covers concepts and useful tools for the design and performance analysis of a digital transmitter and receiver at the physical layer of a communication system', '35.00', '40.00', '5.00', '20.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 3, 'CLO1:\\^\\:Describe signal representation in Bandpass and Baseband and concepts of signal-space analysis.:\\^\\:C2:\\^\\:CLO2:\\^\\:Identify types of modulation schemes and compare their performance using signal-space analysis.:\\^\\:C4:\\^\\:CLO3:\\^\\:Apply Probabilistic analysis to compare design optimal receiver in an AWGN channel.:\\^\\:C3', 0, '', '1:\\^\\:2', 'CLO1:\\^\\:1.0:\\^\\:CLO2:\\^\\:1.0', 'CLO3:\\^\\:1.0', '', '', '', '', '', '', '', '', '', ''),
+(6, 'ee3206_Spring_2020', 'EE-3206', 'Digital Communication', 'Spring 2020', 0, '3', 'Theory', 'Mr. Muhammad Zulqarnain', 'zulqarnain:\\^\\:admin', 'The objective of the course is to prepare students for engineering work and research in the telecommunication industry. The course covers concepts and useful tools for the design and performance analysis of a digital transmitter and receiver at the physical layer of a communication system', '35.00', '40.00', '5.00', '20.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 4, 'CLO1:\\^\\: signal representation in Bandpass and Baseband and concepts of signal-space analysis.:\\^\\:C2:\\^\\:CLO2:\\^\\:Identify types of modulation schemes and compare their performance using signal-space analysis.:\\^\\:C4:\\^\\:CLO3:\\^\\:Apply Probabilistic analysis to compare design optimal receiver in an AWGN channel.:\\^\\:C3:\\^\\:CLO4:\\^\\:CLO Description goes here:\\^\\:', 3, 'set1:\\^\\:0:\\^\\:set2:\\^\\:0:\\^\\:set3:\\^\\:3:\\^\\:Team Work:\\^\\:Computer Use:\\^\\:Laboratory Safety Rules', '1:\\^\\:2', 'CLO1:\\^\\:1.0:\\^\\:CLO2:\\^\\:1.0', 'CLO3:\\^\\:1.0', '', '', '', '', '', '', '', '', '', ''),
 (7, 'ns2104_Fall_2019', 'NS-2104', 'Linear Algebra', 'Fall 2019', 1, '3', 'Theory', 'Mr. Muhammad Zulqarnain', 'zulqarnain:\\^\\:admin', 'This course provides a basic understanding of system of linear equations and matrices in an n-dimensional space. It provides a working knowledge of matrix algebra, determinants, eigenvectors and eigenvalues, finite-dimensional vector spaces, the four fundamental subspaces, matrix representations of linear transformations and applications of linear algebra', '35.00', '15.00', '6.00', '19.00', '0.00', '0.00', '25.00', '0.00', '0.00', '0.00', 3, 'CLO1:\\^\\:Describe the vector equations and matrices in n-dimensional settings.:\\^\\:C2:\\^\\:CLO2:\\^\\:Analyze and solve system of linear equations, then apply to different engineering applications.:\\^\\:C4:\\^\\:CLO3:\\^\\:Describe the eigen values and eigen vectors by using the characteristic polynomial.:\\^\\:C2', 0, '', '1:\\^\\:2', 'CLO1:\\^\\:1.0:\\^\\:CLO3:\\^\\:1.0', 'CLO2:\\^\\:1.0', '', '', '', '', '', '', '', '', '', ''),
 (8, 'ns1203_Spring_2018', 'NS-1203', 'Differential Equations', 'Spring 2018', 1, '3', 'Theory', 'Visitor', 'visitor:\\^\\:admin', '', '35.00', '40.00', '10.00', '15.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 4, 'CLO1:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO2:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO3:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO4:\\^\\:CLO Description goes here:\\^\\:C1', 0, '', '1:\\^\\:2', 'CLO1:\\^\\:100:\\^\\:CLO2:\\^\\:100:\\^\\:CLO3:\\^\\:100:\\^\\:CLO4:\\^\\:100', 'CLO1:\\^\\:100:\\^\\:CLO2:\\^\\:100:\\^\\:CLO3:\\^\\:100:\\^\\:CLO4:\\^\\:100', '', '', '', '', '', '', '', '', '', ''),
 (9, 'ee1202_Spring_2018', 'EE-1202', 'Electronic Devices and Circuits', 'Spring 2018', 1, '3', 'Theory', 'Visitor', 'visitor:\\^\\:admin', '', '35.00', '40.00', '0.00', '15.00', '0.00', '0.00', '0.00', '0.00', '10.00', '0.00', 4, 'CLO1:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO2:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO3:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO4:\\^\\:CLO Description goes here:\\^\\:C1', 0, '', '1:\\^\\:2:\\^\\:4:\\^\\:5', 'CLO1:\\^\\:100:\\^\\:CLO2:\\^\\:100:\\^\\:CLO3:\\^\\:100:\\^\\:CLO4:\\^\\:100', 'CLO1:\\^\\:100:\\^\\:CLO2:\\^\\:100:\\^\\:CLO3:\\^\\:100:\\^\\:CLO4:\\^\\:100', '', 'CLO1:\\^\\:100:\\^\\:CLO2:\\^\\:100:\\^\\:CLO4:\\^\\:100', 'CLO4:\\^\\:100', '', '', '', '', '', '', ''),
@@ -209,12 +207,12 @@ INSERT INTO `courses_info` (`serial`, `course_id`, `course_code`, `course_title`
 (14, 'ee2201_Spring_2020', 'EE-2201', 'Signals and Systems', 'Spring 2020', 0, '3', 'Theory', 'Mr. Muhammad Zulqarnain', 'zulqarnain:\\^\\:admin', '', '35.00', '40.00', '12.50', '12.50', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 4, 'CLO1:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO2:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO3:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO4:\\^\\:CLO Description goes here:\\^\\:', 0, '', '1:\\^\\:2:\\^\\:3', '', '', '', '', '', '', '', '', '', '', '', ''),
 (15, 'ee3104_Fall_2019', 'EE-3104', 'Communications System', 'Fall 2019', 0, '3', 'Theory', 'Dr. Muhammad Kashif Samee', 'kashif.samee:\\^\\:admin', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 0, '', 3, 'set1:\\^\\:0:\\^\\:set2:\\^\\:3:\\^\\:Realization of Experiment:\\^\\:Team Work:\\^\\:Conducting Experiment:\\^\\:set3:\\^\\:4:\\^\\:Realization of Experiment:\\^\\:Team Work:\\^\\:Conducting Experiment:\\^\\:Data Analysis', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (16, 'ee3104l_Fall_2019', 'EE-3104L', 'Communications System', 'Fall 2019', 0, '1', 'LAB', 'Dr. Muhammad Kashif Samee', 'kashif.samee:\\^\\:admin', '', '0.00', '0.00', '0.00', '0.00', '85.00', '0.00', '0.00', '5.00', '10.00', '0.00', 2, 'CLO1:\\^\\:CLO Description goes here:\\^\\:C1:\\^\\:CLO2:\\^\\:CLO Description goes here:\\^\\:C1', 2, 'set1:\\^\\:2:\\^\\:Realization of Experiment:\\^\\:Team Work:\\^\\:set2:\\^\\:3:\\^\\:Computer Use:\\^\\:Conducting Experiment:\\^\\:Data Analysis', '1', 'CLO1:\\^\\:1.0:\\^\\:CLO2:\\^\\:1.0', '', '', '', '', '', '', '', '', '', '', ''),
-(17, 'ee2202_Spring_2020', 'EE-2202', 'Electrical Machines', 'Spring 2020', 0, '3', 'Theory', 'Mr. Kashif Habib', 'kashif.habib:\\^\\:admin', NULL, '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 0, '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(17, 'ee2202_Spring_2020', 'EE-2202', 'Electrical Machines', 'Spring 2020', 0, '3', 'Theory', 'Mr. Kashif Habib', 'kashif.habib:\\^\\:admin', '', '35.00', '40.00', '10.00', '15.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 4, 'CLO1:\\^\\:Transformer:\\^\\:C1:\\^\\:CLO2:\\^\\:DC Machines:\\^\\:C1:\\^\\:CLO3:\\^\\:Induction Machines:\\^\\:C1:\\^\\:CLO4:\\^\\:Synchronous Machines:\\^\\:C1', 2, 'set1:\\^\\:0:\\^\\:set2:\\^\\:7:\\^\\:Realization of Experiment:\\^\\:Team Work:\\^\\:Computer Use:\\^\\:Conducting Experiment:\\^\\:Data Analysis:\\^\\:Data Collection:\\^\\:Laboratory Safety Rules', '1:\\^\\:2:\\^\\:5', 'CLO1:\\^\\:1.0:\\^\\:CLO4:\\^\\:1.0', 'CLO2:\\^\\:1.0', '', '', 'CLO3:\\^\\:1.0', '', '', '', '', '', '', ''),
 (18, 'ee2203_Spring_2020', 'EE-2203', 'Electronic Circuits Design', 'Spring 2020', 0, '3', 'Theory', 'Visitor', 'visitor:\\^\\:admin', NULL, '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 0, '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(19, 'ee2201l_Spring_2019', 'EE-2201', 'Signals and Systems', 'Spring 2019', 1, '1', 'LAB', 'Mr. Muhammad Zulqarnain', 'zulqarnain:\\^\\:admin', '', '25.00', '25.00', '1.66', '3.34', '20.00', '0.00', '15.00', '0.00', '10.00', '0.00', 1, 'CLO1:\\^\\:Investigation of discrete and continuous time Signals and Systems in time and frequency domain using MATLAB:\\^\\:P4', 0, '', '5', '', '', '', '', 'CLO1:\\^\\:1.0', '', '', '', '', '', '', ''),
-(20, 'ee3206l_Spring_2020', 'EE-3206L', 'Digital Communication', 'Spring 2020', 0, '1', 'LAB', 'Mr. Muhammad Zulqarnain', 'zulqarnain:\\^\\:admin', 'The objective of the course is to prepare students for engineering work and research in the telecommunication industry. The course covers concepts and useful tools for the design and performance analysis of a digital transmitter and receiver at the physical layer of a communication system', '20.00', '30.00', '0.00', '0.00', '30.00', '20.00', '0.00', '0.00', '0.00', '0.00', 1, 'CLO1:\\^\\:Investigate digital modulation and demodulation techniques using MATLAB and LAB trainer boards:\\^\\:P4', 2, 'set1:\\^\\:4:\\^\\:Realization of Experiment:\\^\\:Team Work:\\^\\:Conducting Experiment:\\^\\:Data Collection:\\^\\:set2:\\^\\:4:\\^\\:Realization of Experiment:\\^\\:Computer Use:\\^\\:Conducting Experiment:\\^\\:Data Analysis', '5', '', '', '', '', 'CLO1:\\^\\:1.0', '', '', '', '', '', '', ''),
-(21, 'ee2201l_Spring_2020', 'EE-2201L', 'Signals & Systems', 'Spring 2020', 0, '1', 'LAB', 'Mr. Muhammad Zulqarnain', 'zulqarnain:\\^\\:admin', '', '20.00', '20.00', '0.00', '0.00', '30.00', '0.00', '15.00', '0.00', '15.00', '0.00', 1, 'CLO1:\\^\\:Investigation of discrete and continuous time Signals and Systems in time and frequency domain using MATLAB:\\^\\:P4', 1, 'set1:\\^\\:4:\\^\\:Realization of Experiment:\\^\\:Computer Use:\\^\\:Conducting Experiment:\\^\\:Data Analysis', '5', '', '', '', '', 'CLO1:\\^\\:1.0', '', '', '', '', '', '', ''),
-(22, 'ee2106l_Fall_2020', 'EE-2106L', 'Computer Aided Engineering Drawing', 'Fall 2020', 0, '1', 'LAB', 'Mr. Osama Majeed Butt', 'osama:\\^\\:admin', NULL, '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 0, '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(19, 'ee2201l_Spring_2019', 'EE-2201', 'Signals and Systems', 'Spring 2019', 0, '1', 'LAB', 'Mr. Muhammad Zulqarnain', 'zulqarnain:\\^\\:admin', '', '25.00', '25.00', '1.66', '3.34', '20.00', '0.00', '15.00', '0.00', '10.00', '0.00', 1, 'CLO1:\\^\\:Investigation of discrete and continuous time Signals and Systems in time and frequency domain using MATLAB:\\^\\:P4', 2, 'set1:\\^\\:3:\\^\\:Realization of Experiment:\\^\\:Computer Use:\\^\\:Data Analysis:\\^\\:set2:\\^\\:7:\\^\\:Realization of Experiment:\\^\\:Team Work:\\^\\:Computer Use:\\^\\:Conducting Experiment:\\^\\:Data Analysis:\\^\\:Data Collection:\\^\\:Laboratory Safety Rules', '5', '', '', '', '', 'CLO1:\\^\\:1.0', '', '', '', '', '', '', ''),
+(20, 'ee3206l_Spring_2020', 'EE-3206L', 'Digital Communication', 'Spring 2020', 0, '1', 'LAB', 'Mr. Muhammad Zulqarnain', 'zulqarnain:\\^\\:admin', 'The objective of the course is to prepare students for engineering work and research in the telecommunication industry. The course covers concepts and useful tools for the design and performance analysis of a digital transmitter and receiver at the physical layer of a communication system', '20.00', '30.00', '0.00', '0.00', '30.00', '20.00', '0.00', '0.00', '0.00', '0.00', 1, 'CLO1:\\^\\:Investigate digital modulation and demodulation techniques using MATLAB and LAB trainer boards:\\^\\:P4', 3, 'set_ee3206l_Spring_2020_1:\\^\\:LAB Rubrics Software:\\^\\:4:\\^\\:6:\\^\\:Realization of Experiment:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Produced highly unacceptable results/analysis:\\^\\:Did not perform:\\^\\:Conduction Experiment:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Produced highly unacceptable results/analysis:\\^\\:Did not perform:\\^\\:Computer Use:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Produced highly unacceptable results/analysis:\\^\\:Did not perform:\\^\\:Data Analysis:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Produced highly unacceptable results/analysis:\\^\\:Did not perform:\\^\\:set_ee3206l_Spring_2020_2:\\^\\:Q1:\\^\\:3:\\^\\:5:\\^\\:Criterion 1:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Did not perform:\\^\\:Criterion 2:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Did not perform:\\^\\:Criterion 3:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Did not perform:\\^\\:set_ee3206l_Spring_2020_3:\\^\\:Rubric Set 3:\\^\\:5:\\^\\:5:\\^\\:Criterion 1:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Did not perform:\\^\\:Criterion 2:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Did not perform:\\^\\:Criterion 3:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Did not perform:\\^\\:Criterion 4:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Did not perform:\\^\\:Criterion 5:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Did not perform', '5', '', '', '', '', 'CLO1:\\^\\:1.0', '', '', '', '', '', '', ''),
+(21, 'ee2201l_Spring_2020', 'EE-2201L', 'Signals & Systems', 'Spring 2020', 0, '1', 'LAB', 'Mr. Muhammad Zulqarnain', 'zulqarnain:\\^\\:admin', '', '20.00', '20.00', '0.00', '0.00', '30.00', '0.00', '15.00', '0.00', '15.00', '0.00', 1, 'CLO1:\\^\\:Investigation of discrete and continuous time Signals and Systems in time and frequency domain using MATLAB:\\^\\:P4', 2, 'set1:\\^\\:4:\\^\\:Realization of Experiment:\\^\\:Computer Use:\\^\\:Conducting Experiment:\\^\\:Data Analysis:\\^\\:set_ee2201l_Spring_2020_2:\\^\\:Rubric Set 2:\\^\\:3:\\^\\:5:\\^\\:Team Work:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Did not perform:\\^\\:Realization of Experiment:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Did not perform:\\^\\:Data Collection:\\^\\:Outstanding performance/analysis/results:\\^\\:Produced accurate results/analysis:\\^\\:Produced acceptable results/analysis:\\^\\:Produced results/analysis with some errors:\\^\\:Did not perform', '5', '', '', '', '', 'CLO1:\\^\\:1.0', '', '', '', '', '', '', ''),
+(22, 'ee2106l_Fall_2020', 'EE-2106L', 'Computer Aided Engineering Drawing', 'Fall 2020', 0, '1', 'LAB', 'Mr. Osama Majeed Butt', 'osama:\\^\\:admin', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 3, 'CLO1:\\^\\:CLO Description goes here:\\^\\::\\^\\:CLO2:\\^\\:CLO Description goes here:\\^\\::\\^\\:CLO3:\\^\\:CLO Description goes here:\\^\\:', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -959,74 +957,75 @@ INSERT INTO `ee2201l_Spring_2019` (`serial`, `data_detail`, `I1`, `I2`, `I3`, `I
 
 CREATE TABLE `ee2201l_Spring_2020` (
   `serial` int(11) NOT NULL,
-  `data_detail` varchar(255) COLLATE utf8_bin NOT NULL
+  `data_detail` varchar(255) COLLATE utf8_bin NOT NULL,
+  `I1` varchar(255) COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `ee2201l_Spring_2020`
 --
 
-INSERT INTO `ee2201l_Spring_2020` (`serial`, `data_detail`) VALUES
-(1, 'Instrument'),
-(2, 'Question'),
-(3, 'QuesPart'),
-(4, 'MaxMarks'),
-(5, 'CLO'),
-(6, 'Date'),
-(7, 'g_type'),
-(8, 'rubric_set_id'),
-(9, 'cep'),
-(10, 'feature10'),
-(11, 'feature11'),
-(12, 'feature12'),
-(13, 'feature13'),
-(14, 'feature14'),
-(15, 'RP-18-EE-401'),
-(16, 'RP-18-EE-402'),
-(17, 'RP-18-EE-403'),
-(18, 'RP-18-EE-404'),
-(19, 'RP-18-EE-405'),
-(20, 'RP-18-EE-407'),
-(21, 'RP-18-EE-408'),
-(22, 'RP-18-EE-409'),
-(23, 'RP-18-EE-410'),
-(24, 'RP-18-EE-411'),
-(25, 'RP-18-EE-412'),
-(26, 'RP-18-EE-413'),
-(27, 'RP-18-EE-414'),
-(28, 'RP-18-EE-415'),
-(29, 'RP-18-EE-416'),
-(30, 'RP-18-EE-417'),
-(31, 'RP-18-EE-418'),
-(32, 'RP-18-EE-419'),
-(33, 'RP-18-EE-420'),
-(34, 'RP-18-EE-421'),
-(35, 'RP-18-EE-422'),
-(36, 'RP-18-EE-425'),
-(37, 'RP-18-EE-426'),
-(38, 'RP-18-EE-427'),
-(39, 'RP-18-EE-428'),
-(40, 'RP-18-EE-429'),
-(41, 'RP-18-EE-430'),
-(42, 'RP-18-EE-431'),
-(43, 'RP-18-EE-432'),
-(44, 'RP-18-EE-433'),
-(45, 'KKRP-18-EE-436'),
-(46, 'KKRP-18-EE-437'),
-(47, 'KKRP-18-EE-438'),
-(48, 'KKRP-18-EE-439'),
-(49, 'KKRP-18-EE-440'),
-(50, 'KKRP-18-EE-441'),
-(51, 'KKRP-18-EE-442'),
-(52, 'KKRP-18-EE-443'),
-(53, 'KKRP-18-EE-444'),
-(54, 'KKRP-18-EE-445'),
-(55, 'KKRP-18-EE-446'),
-(56, 'KKRP-18-EE-447'),
-(57, 'KKRP-18-EE-448'),
-(58, 'KKRP-18-EE-449'),
-(59, 'KKRP-18-EE-450'),
-(60, 'RP-18-EE-451');
+INSERT INTO `ee2201l_Spring_2020` (`serial`, `data_detail`, `I1`) VALUES
+(1, 'Instrument', 'LAB'),
+(2, 'Question', '1'),
+(3, 'QuesPart', NULL),
+(4, 'MaxMarks', '90'),
+(5, 'CLO', '1'),
+(6, 'Date', ''),
+(7, 'g_type', 'rubric'),
+(8, 'rubric_set_id', '2'),
+(9, 'cep', ''),
+(10, 'feature10', NULL),
+(11, 'feature11', NULL),
+(12, 'feature12', NULL),
+(13, 'feature13', NULL),
+(14, 'feature14', NULL),
+(15, 'RP-18-EE-401', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(16, 'RP-18-EE-402', 'Accomplished:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:84'),
+(17, 'RP-18-EE-403', 'Exemplary:\\^\\:Developing:\\^\\:Exemplary:\\^\\:78'),
+(18, 'RP-18-EE-404', 'Begining:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:66'),
+(19, 'RP-18-EE-405', 'Exemplary:\\^\\:Exemplary:\\^\\:Developing:\\^\\:78'),
+(20, 'RP-18-EE-407', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(21, 'RP-18-EE-408', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(22, 'RP-18-EE-409', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(23, 'RP-18-EE-410', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(24, 'RP-18-EE-411', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(25, 'RP-18-EE-412', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(26, 'RP-18-EE-413', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(27, 'RP-18-EE-414', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(28, 'RP-18-EE-415', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(29, 'RP-18-EE-416', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(30, 'RP-18-EE-417', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(31, 'RP-18-EE-418', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(32, 'RP-18-EE-419', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(33, 'RP-18-EE-420', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(34, 'RP-18-EE-421', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(35, 'RP-18-EE-422', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(36, 'RP-18-EE-425', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(37, 'RP-18-EE-426', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(38, 'RP-18-EE-427', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(39, 'RP-18-EE-428', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(40, 'RP-18-EE-429', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(41, 'RP-18-EE-430', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(42, 'RP-18-EE-431', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(43, 'RP-18-EE-432', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(44, 'RP-18-EE-433', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(45, 'KKRP-18-EE-436', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(46, 'KKRP-18-EE-437', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(47, 'KKRP-18-EE-438', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(48, 'KKRP-18-EE-439', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(49, 'KKRP-18-EE-440', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(50, 'KKRP-18-EE-441', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(51, 'KKRP-18-EE-442', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(52, 'KKRP-18-EE-443', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(53, 'KKRP-18-EE-444', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(54, 'KKRP-18-EE-445', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(55, 'KKRP-18-EE-446', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(56, 'KKRP-18-EE-447', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(57, 'KKRP-18-EE-448', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(58, 'KKRP-18-EE-449', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(59, 'KKRP-18-EE-450', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90'),
+(60, 'RP-18-EE-451', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90');
 
 -- --------------------------------------------------------
 
@@ -1132,74 +1131,77 @@ CREATE TABLE `ee2202_Spring_2020` (
   `I1` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `I2` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `I3` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `I4` varchar(255) COLLATE utf8_bin DEFAULT NULL
+  `I4` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `I5` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `I6` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `I7` varchar(255) COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `ee2202_Spring_2020`
 --
 
-INSERT INTO `ee2202_Spring_2020` (`serial`, `data_detail`, `I1`, `I2`, `I3`, `I4`) VALUES
-(1, 'Instrument', 'Attendance', 'Attendance', 'Attendance', 'Attendance'),
-(2, 'Question', NULL, NULL, NULL, NULL),
-(3, 'QuesPart', NULL, NULL, NULL, NULL),
-(4, 'MaxMarks', NULL, NULL, NULL, NULL),
-(5, 'CLO', NULL, NULL, NULL, NULL),
-(6, 'Date', '2020-03-24', '2020-03-26', '2020-03-30', '2020-04-02'),
-(7, 'g_type', NULL, NULL, NULL, NULL),
-(8, 'rubric_set_id', NULL, NULL, NULL, NULL),
-(9, 'cep', NULL, NULL, NULL, NULL),
-(10, 'feature10', NULL, NULL, NULL, NULL),
-(11, 'feature11', NULL, NULL, NULL, NULL),
-(12, 'feature12', NULL, NULL, NULL, NULL),
-(13, 'feature13', NULL, NULL, NULL, NULL),
-(14, 'feature14', NULL, NULL, NULL, NULL),
-(15, 'RP-18-EE-401', 'P', 'P', 'P', 'P'),
-(16, 'RP-18-EE-402', 'P', 'P', 'P', 'P'),
-(17, 'RP-18-EE-403', 'P', 'P', 'P', 'P'),
-(18, 'RP-18-EE-404', 'P', 'P', 'P', 'P'),
-(19, 'RP-18-EE-405', 'P', 'P', 'P', 'P'),
-(20, 'RP-18-EE-407', 'P', 'P', 'P', 'P'),
-(21, 'RP-18-EE-408', 'P', 'P', 'P', 'P'),
-(22, 'RP-18-EE-409', 'P', 'P', 'P', 'A'),
-(23, 'RP-18-EE-410', 'P', 'P', 'P', 'P'),
-(24, 'RP-18-EE-411', 'P', 'P', 'P', 'A'),
-(25, 'RP-18-EE-412', 'P', 'P', 'P', 'P'),
-(26, 'RP-18-EE-414', 'A', 'A', 'A', 'A'),
-(27, 'RP-18-EE-415', 'P', 'P', 'A', 'P'),
-(28, 'RP-18-EE-416', 'P', 'P', 'P', 'P'),
-(29, 'RP-18-EE-417', 'P', 'P', 'P', 'P'),
-(30, 'RP-18-EE-418', 'P', 'P', 'P', 'P'),
-(31, 'RP-18-EE-419', 'P', 'P', 'P', 'P'),
-(32, 'RP-18-EE-420', 'P', 'P', 'P', 'P'),
-(33, 'RP-18-EE-421', 'P', 'P', 'P', 'P'),
-(34, 'RP-18-EE-422', 'P', 'P', 'P', 'P'),
-(35, 'RP-18-EE-425', 'P', 'P', 'P', 'P'),
-(36, 'RP-18-EE-426', 'P', 'P', 'P', 'P'),
-(37, 'RP-18-EE-427', 'A', 'P', 'P', 'P'),
-(38, 'RP-18-EE-428', 'A', 'P', 'P', 'A'),
-(39, 'RP-18-EE-429', 'P', 'P', 'A', 'P'),
-(40, 'RP-18-EE-430', 'P', 'P', 'P', 'P'),
-(41, 'RP-18-EE-431', 'P', 'P', 'P', 'P'),
-(42, 'RP-18-EE-432', 'P', 'P', 'P', 'P'),
-(43, 'RP-18-EE-433', 'P', 'P', 'P', 'P'),
-(44, 'KKRP-18-EE-436', 'A', 'P', 'P', 'A'),
-(45, 'KKRP-18-EE-437', 'A', 'A', 'A', 'A'),
-(46, 'KKRP-18-EE-438', 'A', 'A', 'P', 'P'),
-(47, 'KKRP-18-EE-439', 'P', 'P', 'A', 'A'),
-(48, 'KKRP-18-EE-440', 'A', 'P', 'A', 'A'),
-(49, 'KKRP-18-EE-441', 'A', 'A', 'P', 'P'),
-(50, 'KKRP-18-EE-442', 'P', 'P', 'A', 'A'),
-(51, 'KKRP-18-EE-443', 'A', 'P', 'P', 'A'),
-(52, 'KKRP-18-EE-444', 'P', 'P', 'A', 'A'),
-(53, 'KKRP-18-EE-445', 'P', 'P', 'A', 'A'),
-(54, 'KKRP-18-EE-446', 'A', 'A', 'A', 'A'),
-(55, 'KKRP-18-EE-447', 'A', 'P', 'P', 'A'),
-(56, 'KKRP-18-EE-448', 'A', 'P', 'A', 'A'),
-(57, 'KKRP-18-EE-449', 'A', 'A', 'A', 'A'),
-(58, 'KKRP-18-EE-450', 'P', 'A', 'P', 'A'),
-(59, 'RP-18-EE-451', 'P', 'P', 'P', 'P'),
-(60, 'RP-17-EE-400', NULL, NULL, NULL, NULL);
+INSERT INTO `ee2202_Spring_2020` (`serial`, `data_detail`, `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`) VALUES
+(1, 'Instrument', 'Attendance', 'Attendance', 'Attendance', 'Attendance', 'Quiz', 'Attendance', 'Attendance'),
+(2, 'Question', NULL, NULL, NULL, NULL, '1', NULL, NULL),
+(3, 'QuesPart', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'MaxMarks', NULL, NULL, NULL, NULL, '5', NULL, NULL),
+(5, 'CLO', NULL, NULL, NULL, NULL, '1', NULL, NULL),
+(6, 'Date', '2020-03-24', '2020-03-26', '2020-03-30', '2020-04-02', '2021-07-02', '2021-07-02', '2021-06-29'),
+(7, 'g_type', NULL, NULL, NULL, NULL, 'conventional', NULL, NULL),
+(8, 'rubric_set_id', NULL, NULL, NULL, NULL, '1', NULL, NULL),
+(9, 'cep', NULL, NULL, NULL, NULL, '0', NULL, NULL),
+(10, 'feature10', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'feature11', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 'feature12', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 'feature13', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'feature14', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'RP-18-EE-401', 'P', 'P', 'P', 'P', NULL, 'P', NULL),
+(16, 'RP-18-EE-402', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(17, 'RP-18-EE-403', 'P', 'P', 'P', 'P', NULL, 'P', 'P'),
+(18, 'RP-18-EE-404', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(19, 'RP-18-EE-405', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(20, 'RP-18-EE-407', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(21, 'RP-18-EE-408', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(22, 'RP-18-EE-409', 'P', 'P', 'P', 'A', NULL, NULL, NULL),
+(23, 'RP-18-EE-410', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(24, 'RP-18-EE-411', 'P', 'P', 'P', 'A', NULL, NULL, NULL),
+(25, 'RP-18-EE-412', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(26, 'RP-18-EE-414', 'A', 'A', 'A', 'A', NULL, NULL, NULL),
+(27, 'RP-18-EE-415', 'P', 'P', 'A', 'P', NULL, NULL, NULL),
+(28, 'RP-18-EE-416', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(29, 'RP-18-EE-417', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(30, 'RP-18-EE-418', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(31, 'RP-18-EE-419', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(32, 'RP-18-EE-420', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(33, 'RP-18-EE-421', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(34, 'RP-18-EE-422', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(35, 'RP-18-EE-425', 'P', 'P', 'P', 'P', NULL, NULL, 'P'),
+(36, 'RP-18-EE-426', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(37, 'RP-18-EE-427', 'A', 'P', 'P', 'P', NULL, NULL, NULL),
+(38, 'RP-18-EE-428', 'A', 'P', 'P', 'A', NULL, NULL, NULL),
+(39, 'RP-18-EE-429', 'P', 'P', 'A', 'P', NULL, NULL, NULL),
+(40, 'RP-18-EE-430', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(41, 'RP-18-EE-431', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(42, 'RP-18-EE-432', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(43, 'RP-18-EE-433', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(44, 'KKRP-18-EE-436', 'A', 'P', 'P', 'A', NULL, NULL, NULL),
+(45, 'KKRP-18-EE-437', 'A', 'A', 'A', 'A', NULL, NULL, NULL),
+(46, 'KKRP-18-EE-438', 'A', 'A', 'P', 'P', NULL, NULL, NULL),
+(47, 'KKRP-18-EE-439', 'P', 'P', 'A', 'A', NULL, NULL, NULL),
+(48, 'KKRP-18-EE-440', 'A', 'P', 'A', 'A', NULL, NULL, NULL),
+(49, 'KKRP-18-EE-441', 'A', 'A', 'P', 'P', NULL, NULL, NULL),
+(50, 'KKRP-18-EE-442', 'P', 'P', 'A', 'A', NULL, NULL, NULL),
+(51, 'KKRP-18-EE-443', 'A', 'P', 'P', 'A', NULL, NULL, NULL),
+(52, 'KKRP-18-EE-444', 'P', 'P', 'A', 'A', NULL, NULL, NULL),
+(53, 'KKRP-18-EE-445', 'P', 'P', 'A', 'A', NULL, NULL, NULL),
+(54, 'KKRP-18-EE-446', 'A', 'A', 'A', 'A', NULL, NULL, NULL),
+(55, 'KKRP-18-EE-447', 'A', 'P', 'P', 'A', NULL, NULL, NULL),
+(56, 'KKRP-18-EE-448', 'A', 'P', 'A', 'A', NULL, NULL, NULL),
+(57, 'KKRP-18-EE-449', 'A', 'A', 'A', 'A', NULL, NULL, NULL),
+(58, 'KKRP-18-EE-450', 'P', 'A', 'P', 'A', NULL, NULL, NULL),
+(59, 'RP-18-EE-451', 'P', 'P', 'P', 'P', NULL, NULL, NULL),
+(60, 'RP-17-EE-400', NULL, NULL, NULL, NULL, '9', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1527,38 +1529,40 @@ CREATE TABLE `ee3206l_Spring_2020` (
   `I14` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `I15` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `I16` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `I17` varchar(255) COLLATE utf8_bin DEFAULT NULL
+  `I17` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `I18` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `I19` varchar(255) COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `ee3206l_Spring_2020`
 --
 
-INSERT INTO `ee3206l_Spring_2020` (`serial`, `data_detail`, `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, `I8`, `I9`, `I10`, `I11`, `I12`, `I13`, `I14`, `I15`, `I16`, `I17`) VALUES
-(1, 'Instrument', 'Midterm', 'Midterm', 'Midterm', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'Project', 'LAB', 'LAB', 'LAB', 'LAB', 'Final', 'Final', 'Final', 'Final'),
-(2, 'Question', '1', '2', '3', '1', '2', '3', '4', '5', '1', '6', '7', '8', '9', '1', '1', '1', '2'),
-(3, 'QuesPart', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'a', 'b', 'c', NULL),
-(4, 'MaxMarks', '5', '5', '10', '10', '20', '10', '10', '10', '60', '10', '10', '10', '10', '10', '20', '10', '20'),
-(5, 'CLO', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'),
-(6, 'Date', '2020-03-12', '2020-03-12', '2020-03-12', '', '', '', '', '', '2020-12-05', '', '', '', '', '', '', '', ''),
-(7, 'g_type', 'conventional', 'conventional', 'conventional', 'rubric', 'rubric', 'rubric', 'rubric', 'rubric', 'conventional', 'rubric', 'rubric', 'rubric', 'rubric', 'conventional', 'conventional', 'conventional', 'conventional'),
-(8, 'rubric_set_id', '', '', '', '1', '2', '1', '1', '2', '1', '2', '2', '2', '2', '1', '1', '1', '1'),
-(9, 'cep', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', ''),
-(10, 'feature10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 'feature11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 'feature12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 'feature13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 'feature14', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 'RP-17-EE-400', '2', '1', '2', 'Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:9', 'Satisfactory:\\^\\:Developing:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:16', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:Satisfactory:\\^\\:9', '59', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '10', '20', '10', '20'),
-(16, 'RP-17-EE-403', '3', '1', '2.5', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:20', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:Satisfactory:\\^\\:9', '51', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9.5', '0', '0', '0', '0'),
-(17, 'RP-17-EE-405', '3', '2.5', '6.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:20', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '58', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '9', '19', '10', '20'),
-(18, 'RP-17-EE-406', '4', '5', '7.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Satisfactory:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:18', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '58', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '0', '0', '0', '0'),
-(19, 'RP-17-EE-411', '3', '1', '6.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Satisfactory:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:18', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '59', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '10', '15', '8', '15'),
-(20, 'RP-17-EE-413', '5', '5', '3', 'Exemplary:\\^\\:Satisfactory:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:9', 'Satisfactory:\\^\\:Satisfactory:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:17', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '57', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '10', '20', '10', '20'),
-(21, 'RP-17-EE-414', '5', '1', '5.5', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Satisfactory:\\^\\:Developing:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:16', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Satisfactory:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:8.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:Satisfactory:\\^\\:9', '57', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', '10', '20', '10', '20'),
-(22, 'RP-17-EE-425', '5', '2.5', '5.5', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Satisfactory:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:17', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Satisfactory:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '59', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '0', '0', '0', '0'),
-(23, 'RP-17-EE-431', '5', '2', '4', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:20', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:9', 'Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:Satisfactory:\\^\\:9', '58', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '10', '20', '10', '19'),
-(24, 'RP-17-EE-434', '3', '1', '2', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Developing:\\^\\:8.5', 'Satisfactory:\\^\\:Unsatisfactory:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:15', 'Satisfactory:\\^\\:Developing:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:8', 'Satisfactory:\\^\\:Developing:\\^\\:Satisfactory:\\^\\:Satisfactory:\\^\\:7.5', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', '0', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', '0', '0', '0', '0');
+INSERT INTO `ee3206l_Spring_2020` (`serial`, `data_detail`, `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, `I8`, `I9`, `I10`, `I11`, `I12`, `I13`, `I14`, `I15`, `I16`, `I17`, `I18`, `I19`) VALUES
+(1, 'Instrument', 'Midterm', 'Midterm', 'Midterm', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'Project', 'LAB', 'LAB', 'LAB', 'LAB', 'Final', 'Final', 'Final', 'Final', 'LAB', 'LAB'),
+(2, 'Question', '1', '2', '3', '1', '2', '3', '4', '5', '1', '6', '7', '8', '9', '1', '1', '1', '2', '20', '19'),
+(3, 'QuesPart', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'a', 'b', 'c', NULL, NULL, NULL),
+(4, 'MaxMarks', '5', '5', '10', '10', '20', '10', '10', '10', '60', '10', '10', '10', '10', '10', '20', '10', '20', '90', '80'),
+(5, 'CLO', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'),
+(6, 'Date', '2020-03-12', '2020-03-12', '2020-03-12', '', '', '', '', '', '2020-12-05', '', '', '', '', '', '', '', '', '', ''),
+(7, 'g_type', 'conventional', 'conventional', 'conventional', 'rubric', 'rubric', 'rubric', 'rubric', 'rubric', 'conventional', 'rubric', 'rubric', 'rubric', 'rubric', 'conventional', 'conventional', 'conventional', 'conventional', 'rubric', 'rubric'),
+(8, 'rubric_set_id', '', '', '', '1', '2', '1', '1', '2', '1', '2', '2', '2', '2', '1', '1', '1', '1', '1', '3'),
+(9, 'cep', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', ''),
+(10, 'feature10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'feature11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 'feature12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 'feature13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'feature14', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'RP-17-EE-400', '2', '1', '2', 'Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:9', 'Exemplary:\\^\\:Developing:\\^\\:Exemplary:\\^\\:14.666666666667', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '59', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '10', '20', '10', '20', 'Exemplary:\\^\\:Exemplary:\\^\\:Developing:\\^\\:Exemplary:\\^\\:81', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:80'),
+(16, 'RP-17-EE-403', '3', '1', '2.5', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:20', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '51', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9.5', '0', '0', '0', '0', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:80'),
+(17, 'RP-17-EE-405', '3', '2.5', '6.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:20', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '58', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '9', '19', '10', '20', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:85.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:80'),
+(18, 'RP-17-EE-406', '4', '5', '7.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:20', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '58', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '0', '0', '0', '0', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:80'),
+(19, 'RP-17-EE-411', '3', '1', '6.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:20', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '59', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '10', '15', '8', '15', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:80'),
+(20, 'RP-17-EE-413', '5', '5', '3', 'Exemplary:\\^\\:Satisfactory:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:9', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:20', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '57', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '10', '20', '10', '20', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:80'),
+(21, 'RP-17-EE-414', '5', '1', '5.5', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Exemplary:\\^\\:Developing:\\^\\:Exemplary:\\^\\:14.666666666667', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Satisfactory:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:8.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '57', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', '10', '20', '10', '20', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:80'),
+(22, 'RP-17-EE-425', '5', '2.5', '5.5', 'Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:9', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:20', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9.5', 'Satisfactory:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:9', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '59', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '0', '0', '0', '0', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:80'),
+(23, 'RP-17-EE-431', '5', '2', '4', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:20', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Satisfactory:\\^\\:Exemplary:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:9', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '58', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:10', '10', '20', '10', '19', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:80'),
+(24, 'RP-17-EE-434', '3', '1', '2', 'Satisfactory:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Developing:\\^\\:8.5', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:20', 'Satisfactory:\\^\\:Developing:\\^\\:Satisfactory:\\^\\:Exemplary:\\^\\:8', 'Satisfactory:\\^\\:Developing:\\^\\:Satisfactory:\\^\\:Satisfactory:\\^\\:7.5', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', '0', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', 'Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:Absent:\\^\\:0', '0', '0', '0', '0', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:90', 'Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:Exemplary:\\^\\:80');
 
 -- --------------------------------------------------------
 
@@ -2778,12 +2782,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `user_type`, `name`, `avatar`, `created_at`) VALUES
-(1, 'zulqarnain', '$2b$10$iXF8gHy61Y5efkuHRGI8VuknLBKbXGm3/8.KLPtIaHkjpCHx.LB3q', 'instructor', 'Mr. Muhammad Zulqarnain', 'w3images/zulqarnain.jpg', '2020-03-18 21:44:12'),
-(2, 'admin', '$2b$10$iXF8gHy61Y5efkuHRGI8VuknLBKbXGm3/8.KLPtIaHkjpCHx.LB3q', 'admin', 'Administrator', 'w3images/avatar2.png', '2020-03-18 21:44:12'),
-(3, 'kashif.samee', '$2y$10$D9twzfthteySlRJvxS2qcOSHwEgFUU7RD/F1ZxeBUdCDYWsWhgraO', 'instructor', 'Dr. Muhammad Kashif Samee', 'w3images/avatar2.png', '2020-03-18 21:44:12'),
+(1, 'zulqarnain', '$2y$10$H7hNsBrvaTtXPDkx63ogqeOv.q2tky8PGLag6o6sHnlCeGc5jhEPK', 'instructor', 'Mr. Muhammad Zulqarnain', 'w3images/zulqarnain.jpg', '2020-03-18 21:44:12'),
+(2, 'admin', '$2y$10$H7hNsBrvaTtXPDkx63ogqeOv.q2tky8PGLag6o6sHnlCeGc5jhEPK', 'admin', 'Administrator', 'w3images/avatar2.png', '2020-03-18 21:44:12'),
+(3, 'kashif.samee', '$2y$10$DZcox4smyGOMc2hOeFUOEuDyxd2r2cZXL4DjG1kzMCD3jXrxVgjFW', 'instructor', 'Dr. Muhammad Kashif Samee', 'w3images/avatar2.png', '2020-03-18 21:44:12'),
 (4, 'kashif.habib', '$2y$10$bhr2/.a7L0NVOgvyugBYH.7UO5qG6AsIIPeAhl6Lw4eTM9ZbS20Na', 'instructor', 'Mr. Kashif Habib', 'w3images/avatar2.png', '2020-03-23 19:36:28'),
 (5, 'visitor', '$2y$10$iTurE0KB4yjkbksLcGTRA.ueho8rDmn3Rxq0zD/WchadIH4bBA29i', 'instructor', 'Visitor', 'w3images/avatar2.png', '2020-03-23 19:37:38'),
-(6, 'osama', '$2y$12$gY.NLJueupwwjY7L3LQKLeBSnfsr9c8I5ABIj.8ihpQRUPqqX9fEa', 'instructor', 'Mr. Osama Majeed Butt', 'w3images/avatar2.png', '2020-03-18 21:44:12');
+(6, 'osama', '$2y$12$gY.NLJueupwwjY7L3LQKLeBSnfsr9c8I5ABIj.8ihpQRUPqqX9fEa', 'instructor', 'Mr. Osama Majeed Butt', 'w3images/avatar2.png', '2020-03-18 21:44:12'),
+(7, 'zeeshan.azmat', '$2y$10$H7hNsBrvaTtXPDkx63ogqeOv.q2tky8PGLag6o6sHnlCeGc5jhEPK', 'instructor', 'Dr. Zeeshan Azmat', 'w3images/avatar2.png', '2020-03-18 21:44:12');
 
 --
 -- Indexes for dumped tables
@@ -2979,183 +2984,151 @@ ALTER TABLE `users`
 --
 ALTER TABLE `batch_list`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
-
 --
 -- AUTO_INCREMENT for table `courses_info`
 --
 ALTER TABLE `courses_info`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
 --
 -- AUTO_INCREMENT for table `cs1201l_Spring_2018`
 --
 ALTER TABLE `cs1201l_Spring_2018`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
 --
 -- AUTO_INCREMENT for table `cs1201_Spring_2018`
 --
 ALTER TABLE `cs1201_Spring_2018`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
 --
 -- AUTO_INCREMENT for table `ee1202l_Spring_2018`
 --
 ALTER TABLE `ee1202l_Spring_2018`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
 --
 -- AUTO_INCREMENT for table `ee1202_Spring_2018`
 --
 ALTER TABLE `ee1202_Spring_2018`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
 --
 -- AUTO_INCREMENT for table `ee1206_Fall_2019`
 --
 ALTER TABLE `ee1206_Fall_2019`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
 --
 -- AUTO_INCREMENT for table `ee2106l_Fall_2020`
 --
 ALTER TABLE `ee2106l_Fall_2020`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
-
 --
 -- AUTO_INCREMENT for table `ee2201l_Spring_2019`
 --
 ALTER TABLE `ee2201l_Spring_2019`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
 --
 -- AUTO_INCREMENT for table `ee2201l_Spring_2020`
 --
 ALTER TABLE `ee2201l_Spring_2020`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
 --
 -- AUTO_INCREMENT for table `ee2201_Spring_2020`
 --
 ALTER TABLE `ee2201_Spring_2020`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
 --
 -- AUTO_INCREMENT for table `ee2202_Spring_2020`
 --
 ALTER TABLE `ee2202_Spring_2020`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
 --
 -- AUTO_INCREMENT for table `ee2203_Spring_2020`
 --
 ALTER TABLE `ee2203_Spring_2020`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
 --
 -- AUTO_INCREMENT for table `ee3104l_Fall_2019`
 --
 ALTER TABLE `ee3104l_Fall_2019`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
 --
 -- AUTO_INCREMENT for table `ee3104_Fall_2019`
 --
 ALTER TABLE `ee3104_Fall_2019`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
 --
 -- AUTO_INCREMENT for table `ee3206l_Spring_2019`
 --
 ALTER TABLE `ee3206l_Spring_2019`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=922;
-
 --
 -- AUTO_INCREMENT for table `ee3206l_Spring_2020`
 --
 ALTER TABLE `ee3206l_Spring_2020`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
 --
 -- AUTO_INCREMENT for table `ee3206_Spring_2019`
 --
 ALTER TABLE `ee3206_Spring_2019`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
 --
 -- AUTO_INCREMENT for table `ee3206_Spring_2020`
 --
 ALTER TABLE `ee3206_Spring_2020`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
 --
 -- AUTO_INCREMENT for table `ee5756_Spring_2020`
 --
 ALTER TABLE `ee5756_Spring_2020`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
 --
 -- AUTO_INCREMENT for table `me1204_Spring_2018`
 --
 ALTER TABLE `me1204_Spring_2018`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
-
 --
 -- AUTO_INCREMENT for table `ns1203_Spring_2018`
 --
 ALTER TABLE `ns1203_Spring_2018`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
-
 --
 -- AUTO_INCREMENT for table `ns1205_Spring_2019`
 --
 ALTER TABLE `ns1205_Spring_2019`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
 --
 -- AUTO_INCREMENT for table `ns2104_Fall_2019`
 --
 ALTER TABLE `ns2104_Fall_2019`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
-
 --
 -- AUTO_INCREMENT for table `ns3201_Spring_2019`
 --
 ALTER TABLE `ns3201_Spring_2019`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
-
 --
 -- AUTO_INCREMENT for table `program_info`
 --
 ALTER TABLE `program_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `student_records`
 --
 ALTER TABLE `student_records`
   MODIFY `stu_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
-
 --
 -- AUTO_INCREMENT for table `student_records_backup`
 --
 ALTER TABLE `student_records_backup`
   MODIFY `stu_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
-
 --
 -- AUTO_INCREMENT for table `univ_info`
 --
 ALTER TABLE `univ_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
